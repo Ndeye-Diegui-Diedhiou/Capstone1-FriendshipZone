@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friendship Zone - Registration</title>
+    <link rel="stylesheet" href="projet cc/styles.css">
+    <style>
+        /* Adapté pour RegistrationForm.html - look professionnel, doux et responsive */
+
+        /* Variables */
+        :root {
+            --main: #22304a;
+            --accent: cadetblue;
+            --accent2: rgb(52, 162, 166);
+            --bg: #f7f9fb;
+            --card: #fff;
+            --border: #e0e6ed;
+            --radius: 16px;
+            --shadow: 0 4px 24px rgba(34,48,74,0.09);
+            --transition: 0.2s cubic-bezier(.4,0,.2,1);
+        }
+
+        /* Base */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--main);
+            min-height: 100vh;
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+        a:hover {
+            color: var(--accent2);
+        }
+
+        /* Header & Navigation */
+        .main-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-top: 12px;
+        }
+        .banner-img {
+            height: 70px;
+            width: auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(34,48,74,0.10);
+            background: #fff;
+        }
+        .brand-name h1 {
+            margin: 0;
+            color: #0b0b0b;
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(34,48,74,0.13);
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            margin: 18px 0 0 0;
+            padding: 0;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            color: #1a1a1a;
+            font-weight: 500;
+            font-size: 1.1em;
+            border-radius: 8px;
+            padding: 8px 18px;
+            transition: background var(--transition), color var(--transition);
+        }
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(255,126,95,0.10);
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 2em;
+            background: none;
+            border: none;
+            color: #151515;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        /* Formulaire d'inscription */
+        .intro-section {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 36px 32px 32px 32px;
+            margin: 40px auto 32px auto;
+            max-width: 600px;
+            text-align: center;
+        }
+        .intro-section h1 {
+            color: var(--accent);
+            font-size: 2.1em;
+            margin-bottom: 0.2em;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .intro-section h3 {
+            color: var(--accent2);
+            font-size: 1.15em;
+            margin-bottom: 1.2em;
+            font-weight: 500;
+        }
+        form {
+            margin-top: 24px;
+            text-align: left;
+        }
+        form label {
+            font-weight: 500;
+            color: var(--main);
+            margin-bottom: 4px;
+            display: block;
+        }
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="number"],
+        form input[type="date"],
+        form input[type="tel"],
+        form input[type="password"],
+        form select,
+        form textarea {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 18px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+            background: #f7f9fb;
+            transition: border-color var(--transition);
+            box-sizing: border-box;
+        }
+        form input:focus,
+        form select:focus,
+        form textarea:focus {
+            border-color: var(--accent);
+            outline: none;
+        }
+        .radio-group, .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+        .radio-group label,
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: 400;
+            color: var(--main);
+        }
+        form input[type="radio"],
+        form input[type="checkbox"] {
+            accent-color: var(--accent);
+            margin-right: 6px;
+        }
+        form input[type="file"] {
+            margin-bottom: 18px;
+        }
+        form button[type="submit"] {
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            color: #fff;
+            border: none;
+            padding: 13px 0;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            width: 48%;
+            margin: 10px 1% 0 1%;
+            transition: background var(--transition), box-shadow var(--transition);
+            box-shadow: 0 2px 8px rgba(34,48,74,0.10);
+            display: inline-block;
+        }
+        form button[type="submit"]:hover {
+            background: var(--main);
+        }
+        .info-text {
+            margin-top: 18px;
+            font-size: 0.98em;
+            color: #666;
+        }
+        .info-text a {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        .info-text a:hover {
+            color: var(--accent2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--main);
+            color: #1a1a1a;
+            padding: 28px 0 10px 0;
+            text-align: center;
+            margin-top: 32px;
+            border-top-left-radius: var(--radius);
+            border-top-right-radius: var(--radius);
+            box-shadow: var(--shadow);
+            font-size: 1.05em;
+        }
+        .footer-links a {
+            color: #0e0d0d;
+            margin-right: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+        .footer-links a:hover {
+            color: var(--accent2);
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .intro-section {
+                padding: 18px 6px 18px 6px;
+            }
+            form button[type="submit"] {
+                width: 100%;
+                margin: 10px 0 0 0;
+            }
+        }
+        @media (max-width: 500px) {
+            .brand-name h1 {
+                font-size: 1.3rem;
+            }
+            .intro-section h1 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="logo-container">
+            <img src="FRIENDSHIP (5).png" alt="FriendshipZone Logo" class="banner-img" style="max-width:80px;">
+            <div class="brand-name"><h1>Friendship Zone</h1></div>
+        </div>
+        <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="projet front end/index.html" class="nav-link">Landing Page</a></li>
+            <li><a href="Homepage.html" class="nav-link">Home</a></li>
+            <li><a href="FriendList.html" class="nav-link">My Friends</a></li>
+        </ul>
+    </nav>
+    <main >
+        <section class="intro-section" style="max-width:600px;margin:40px auto 0 auto;">
+            <h1>Registration</h1>
+            <h3>Enter your information to join the Friendship Zone community</h3>
+            <form action="RegistrationConfirmation.html" method="POST" enctype="multipart/form-data" style="margin-top:24px;">
+                <label for="Name">Name:</label>
+                <input type="text" id="Name" name="Name" placeholder="Enter your name" required>
+
+                <label for="Email">Email:</label>
+                <input type="email" id="Email" name="Email" placeholder="Enter your email" required>
+
+                <label for="Age">Age:</label>
+                <input type="number" id="Age" name="Age" placeholder="Enter your age" min="10" max="120" required>
+
+                <label for="Birthdate">Date of Birth:</label>
+                <input type="date" id="Birthdate" name="Birthdate" required>
+
+                <label>Gender:</label>
+                <div class="radio-group">
+                    <input type="radio" id="Male" name="Gender" value="Male" required>
+                    <label for="Male">Male</label>
+                    <input type="radio" id="Female" name="Gender" value="Female" required>
+                    <label for="Female">Female</label>
+                </div>
+
+                <label for="Country">Country:</label>
+                <select id="Country" name="Country" required>
+                    <option value="">Select your country</option>
+                    <option value="Senegal">Senegal</option>
+                    <option value="Mali">Mali</option>
+                    <option value="Ivory Coast">Ivory Coast</option>
+                    <option value="Gambia">Gambia</option>
+                    <option value="Ghana">Ghana</option>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="Cameroon">Cameroon</option>
+                    <option value="Burkina Faso">Burkina Faso</option>
+                    <option value="Togo">Togo</option>
+                    <option value="Benin">Benin</option>
+                    <option value="Guinea">Guinea</option>
+                    <option value="Guinea-Bissau">Guinea-Bissau</option>
+                    <option value="Sierra Leone">Sierra Leone</option>
+                    <option value="Liberia">Liberia</option>
+                    <option value="Central African Republic">Central African Republic</option>
+                    <option value="Chad">Chad</option>
+                    <option value="Congo">Congo</option>
+                    <option value="Democratic Republic of the Congo">DRC</option>
+                    <option value="Equatorial Guinea">Equatorial Guinea</option>
+                    <option value="Gabon">Gabon</option>
+                    <option value="Djibouti">Djibouti</option>
+                    <option value="Eritrea">Eritrea</option>
+                    <option value="Ethiopia">Ethiopia</option>
+                    <option value="Somalia">Somalia</option>
+                    <option value="Sudan">Sudan</option>
+                    <option value="South Sudan">South Sudan</option>
+                    <option value="Uganda">Uganda</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="Tanzania">Tanzania</option>
+                    <option value="Rwanda">Rwanda</option>
+                    <option value="Burundi">Burundi</option>
+                    <option value="Zambia">Zambia</option>
+                    <option value="Zimbabwe">Zimbabwe</option>
+                    <option value="Malawi">Malawi</option>
+                    <option value="Mozambique">Mozambique</option>
+                    <option value="Namibia">Namibia</option>
+                    <option value="Botswana">Botswana</option>
+                    <option value="South Africa">South Africa</option>
+                    <option value="Lesotho">Lesotho</option>
+                    <option value="Eswatini">Eswatini</option>
+                    <option value="Angola">Angola</option>
+                    <option value="Seychelles">Seychelles</option>
+                    <option value="Comoros">Comoros</option>
+                    <option value="Mauritius">Mauritius</option>
+                    <option value="Madagascar">Madagascar</option>
+                    <option value="Reunion">Reunion</option>
+                    <option value="Mayotte">Mayotte</option>
+                    <option value="Cape Verde">Cape Verde</option>
+                    <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                    <option value="Saint Helena">Saint Helena</option>
+                    <option value="Ascension and Tristan da Cunha">Ascension and Tristan da Cunha</option>
+                    <option value="Western Sahara">Western Sahara</option>
+                </select>
+
+                <label for="Phone">Phone:</label>
+                <input type="tel" id="Phone" name="Phone" placeholder="Enter your phone number" required>
+
+                <label for="About">Hobbies:</label>
+                <textarea id="About" name="About" rows="3" placeholder="Describe your hobbies"></textarea>
+
+                <label for="Password">Password:</label>
+                <input type="password" id="Password" name="Password" placeholder="Enter your password" required>
+
+                <label>Interested in:</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="Friendship" name="Interest" value="Friendship">
+                    <label for="Friendship">Friendship</label>
+                    <input type="checkbox" id="Dating" name="Interest" value="Dating">
+                    <label for="Dating">Dating</label>
+                </div>
+
+                <label for="Attachment">Profile picture:</label>
+                <input type="file" id="Attachment" name="Attachment">
+
+                <div style="text-align:center;">
+                    <button type="submit">Register</button>
+                    <button type="submit" formaction="RegistrationConfirmationforAdmin.html">Register as Admin</button>
+                </div>
+            </form>
+            <div class="info-text">
+                By registering, you accept our <a href="#">terms of use</a>.<br>
+                Already registered? <a href="Login.html">Log in here</a>.
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <div class="footer-links">
+            <h2>Follow us</h2>
+            <ul>
+                <li style="text-decoration: none;"><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+            </ul>
+            <p>All rights reserved 2025</p>
+            <a href="#">Legal notice</a>
+            <a href="#">Privacy policy</a>
+        </div>
+        <div>&copy; 2025 Friendship Zone</div>
+    </footer>
+    <script src="projet cc/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu burger responsive pour la navigation
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            if(menuToggle && navLinks) {
+                menuToggle.onclick = () => navLinks.classList.toggle('show');
+            }
+
+            // Validation simple du formulaire d'inscription
+            const form = document.querySelector('form');
+            if(form) {
+                form.addEventListener('submit', function(e) {
+                    // Vérifie que le mot de passe fait au moins 6 caractères
+                    const password = form.querySelector('input[type="password"]');
+                    if(password && password.value.length < 6) {
+                        alert("Le mot de passe doit contenir au moins 6 caractères.");
+                        password.focus();
+                        e.preventDefault();
+                        return false;
+                    }
+                    // Vérifie qu'au moins un intérêt est coché
+                    const interests = form.querySelectorAll('input[type="checkbox"][name="Interest"]:checked');
+                    if(interests.length === 0) {
+                        alert("Veuillez sélectionner au moins un centre d'intérêt.");
+                        e.preventDefault();
+                        return false;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
